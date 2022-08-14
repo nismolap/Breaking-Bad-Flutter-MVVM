@@ -13,7 +13,7 @@ class BehanceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: (){launchUrl(Uri.parse(link));},
+      onPressed: (){launchUrl(Uri.parse(link),mode: LaunchMode.externalApplication);},
       child: Container(
         width: 250,
         height: 70,

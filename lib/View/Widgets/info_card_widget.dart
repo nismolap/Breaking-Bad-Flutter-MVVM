@@ -18,6 +18,7 @@ class InfoCardWidget extends StatelessWidget {
           flex: 10,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 5),
             decoration: BoxDecoration(
               color: AppColors.secondaryColor1,
               borderRadius: BorderRadius.circular(10),

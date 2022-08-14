@@ -39,25 +39,27 @@ class InfoScreen extends StatelessWidget {
                         )),
                     Expanded(
                         flex: 4,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            InfoCardWidget(
-                                title: 'Name',
-                                info: controller.characters[index].name),
-                            InfoCardWidget(
-                                title: 'BirthDay',
-                                info: controller.characters[index].birthday),
-                            InfoCardWidget(
-                                title: 'Quote',
-                                info: controller.quotes[0].quote),
-                            InfoCardWidget(
-                                title: 'Author',
-                                info: controller.quotes[0].author),
-                            InfoCardWidget(
-                                title: 'Series',
-                                info: controller.quotes[0].series),
-                          ],
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InfoCardWidget(
+                                  title: 'Name',
+                                  info: controller.characters[index].name),
+                              InfoCardWidget(
+                                  title: 'BirthDay',
+                                  info: controller.characters[index].birthday),
+                              InfoCardWidget(
+                                  title: 'Quote',
+                                  info: controller.quotes[0].quote),
+                              InfoCardWidget(
+                                  title: 'Author',
+                                  info: controller.quotes[0].author),
+                              InfoCardWidget(
+                                  title: 'Series',
+                                  info: controller.quotes[0].series),
+                            ],
+                          ),
                         )),
                   ],
                 ),
