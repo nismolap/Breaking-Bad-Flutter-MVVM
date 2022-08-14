@@ -43,8 +43,7 @@ class MyHomePage extends StatelessWidget {
                         itemBuilder: (context, index, realIndex) {
                           return MaterialButton(
                             onPressed: () {
-                              int? id = controller.characters[index].charId;
-                              controller.getQuotesData(id!);
+                              controller.getQuotesData(controller.characters[index].charId!);
                               Get.to(InfoScreen(index: index));
                             },
                             padding: EdgeInsets.zero,

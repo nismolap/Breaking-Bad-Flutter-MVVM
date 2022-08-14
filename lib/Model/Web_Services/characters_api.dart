@@ -5,9 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:BreakingBad/Model/exception.dart';
 
 class CharactersApi {
-  var apiUrl = "https://www.breakingbadapi.com/api";
-  var pathUrl1 = "/characters";
-  var pathUrl2 = "/quotes/";
+  String apiUrl = "https://www.breakingbadapi.com/api";
+  String pathUrl1 = "/characters";
+  String pathUrl2 = "/quotes/";
 
   Future<List<dynamic>> fetchCharactersList() async {
     List<dynamic> responseJson;
@@ -20,7 +20,7 @@ class CharactersApi {
     }
   }
 
-  Future<List<dynamic>> getSelectedQute({required int id}) async {
+  Future<List<dynamic>> getSelectedQuote({required int id}) async {
     List<dynamic> responseJson;
     try {
       final response = await http.get(Uri.parse("$apiUrl$pathUrl2$id"));

@@ -9,7 +9,7 @@ class CharactersRepository {
   }
 
   Future<List<QuotesModel>> getSelectedQuote({required int id}) async {
-    final response = await CharactersApi().getSelectedQute(id: id);
+    final response = await CharactersApi().getSelectedQuote(id: id);
     return response.map((data) => QuotesModel.fromJson(data)).toList();
   }
 }
