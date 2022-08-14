@@ -1,18 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:BreakingBad/Model/Web_Services/end_point.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:BreakingBad/Model/exception.dart';
 
 class CharactersApi {
-  String apiUrl = "https://www.breakingbadapi.com/api";
-  String pathUrl1 = "/characters";
-  String pathUrl2 = "/quotes/";
 
   Future<List<dynamic>> fetchCharactersList() async {
     List<dynamic> responseJson;
     try {
-      final response = await http.get(Uri.parse("$apiUrl$pathUrl1"));
+      final response = await http.get(Uri.parse("${EndPoints.pathUrl}${EndPoints.characterPath}"));
       responseJson = returnResponse(response);
       return responseJson;
     } on SocketException {
@@ -23,7 +21,7 @@ class CharactersApi {
   Future<List<dynamic>> getSelectedQuote({required int id}) async {
     List<dynamic> responseJson;
     try {
-      final response = await http.get(Uri.parse("$apiUrl$pathUrl2$id"));
+      final response = await http.get(Uri.parse("${EndPoints.pathUrl}${EndPoints.quotePath}$id"));
       responseJson = returnResponse(response);
       return responseJson;
     } on SocketException {

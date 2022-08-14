@@ -1,6 +1,9 @@
+import 'package:BreakingBad/Controller/home_controller.dart';
+import 'package:BreakingBad/View/Screens/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
 import 'package:BreakingBad/View/Shared/Configs/TextStyles.dart';
+import 'package:get/get.dart';
 
 class CardWidget extends StatelessWidget {
   final Color backgroundColor;
@@ -8,56 +11,65 @@ class CardWidget extends StatelessWidget {
   final String image;
   final String name;
   final String nickName;
+  final int index;
 
   const CardWidget(
       {Key? key,
       this.backgroundColor = AppColors.secondaryColor1,
       required this.image,
       required this.name,
-      required this.nickName})
+      required this.nickName,
+        required this.index})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(25),
-        boxShadow: [Shadow.shadow()],
-      ),
-      child: Column(
-        children: [
-          Expanded(
-              flex: 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  image: DecorationImage(
-                    image: NetworkImage(image),
-                    fit: BoxFit.cover,
-                    alignment: Alignment.topCenter,
+    HomeController controller = Get.put(HomeController());
+    return InkWell(
+      onTap: (){
+        controller.getQuotesData(controller.characters[index].charId!);
+        Get.to(InfoScreen(index: index));
+      },
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [Shadow.shadow()],
+        ),
+        child: Column(
+          children: [
+            Expanded(
+                flex: 2,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    image: DecorationImage(
+                      image: NetworkImage(image),
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
                   ),
-                ),
-              )),
-          Expanded(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(name, style: AppTextStyle.titleStyle()),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.add_reaction_outlined),
-                  Container(
-                    width: 10,
-                  ),
-                  Text(nickName, style: AppTextStyle.nickNameStyle()),
-                ],
-              )
-            ],
-          )),
-        ],
+                )),
+            Expanded(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(name, style: AppTextStyle.titleStyle()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.add_reaction_outlined),
+                    Container(
+                      width: 10,
+                    ),
+                    Text(nickName, style: AppTextStyle.nickNameStyle()),
+                  ],
+                )
+              ],
+            )),
+          ],
+        ),
       ),
     );
   }

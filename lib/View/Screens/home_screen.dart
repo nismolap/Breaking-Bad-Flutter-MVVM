@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:BreakingBad/Controller/home_controller.dart';
-import 'package:BreakingBad/View/Screens/info_screen.dart';
 import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
 import 'package:BreakingBad/View/Shared/Configs/Constants.dart';
 import 'package:BreakingBad/View/Widgets/behance_widget.dart';
@@ -41,17 +40,12 @@ class MyHomePage extends StatelessWidget {
                           enlargeCenterPage: true,
                         ),
                         itemBuilder: (context, index, realIndex) {
-                          return MaterialButton(
-                            onPressed: () {
-                              controller.getQuotesData(controller.characters[index].charId!);
-                              Get.to(InfoScreen(index: index));
-                            },
-                            padding: EdgeInsets.zero,
-                            child: CardWidget(
-                                image: '${controller.characters[index].img}',
-                                name: '${controller.characters[index].name}',
-                                nickName:
-                                    '${controller.characters[index].nickname}'),
+                          return CardWidget(
+                            image: '${controller.characters[index].img}',
+                            name: '${controller.characters[index].name}',
+                            nickName:
+                                '${controller.characters[index].nickname}',
+                            index: index,
                           );
                         }),
               ),
