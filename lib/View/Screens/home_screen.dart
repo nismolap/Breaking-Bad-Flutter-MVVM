@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mvvm2/Controller/home_controller.dart';
-import 'package:mvvm2/View/Screens/info_screen.dart';
-import 'package:mvvm2/View/Shared/Configs/Colors.dart';
-import 'package:mvvm2/View/Shared/Configs/Constants.dart';
-import 'package:mvvm2/View/Widgets/behance_widget.dart';
-import 'package:mvvm2/View/Widgets/card_widget.dart';
-import 'package:mvvm2/View/Widgets/header_widget.dart';
+import 'package:BreakingBad/Controller/home_controller.dart';
+import 'package:BreakingBad/View/Screens/info_screen.dart';
+import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
+import 'package:BreakingBad/View/Shared/Configs/Constants.dart';
+import 'package:BreakingBad/View/Widgets/behance_widget.dart';
+import 'package:BreakingBad/View/Widgets/card_widget.dart';
+import 'package:BreakingBad/View/Widgets/header_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);

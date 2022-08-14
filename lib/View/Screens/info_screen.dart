@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mvvm2/Controller/home_controller.dart';
-import 'package:mvvm2/View/Shared/Configs/Colors.dart';
-import 'package:mvvm2/View/Widgets/info_card_widget.dart';
+import 'package:BreakingBad/Controller/home_controller.dart';
+import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
+import 'package:BreakingBad/View/Widgets/info_card_widget.dart';
 
 class InfoScreen extends StatelessWidget {
   final int index;

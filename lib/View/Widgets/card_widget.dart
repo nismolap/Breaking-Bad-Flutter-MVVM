@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm2/View/Shared/Configs/Colors.dart';
-import 'package:mvvm2/View/Shared/Configs/TextStyles.dart';
+import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
+import 'package:BreakingBad/View/Shared/Configs/TextStyles.dart';
 
 class CardWidget extends StatelessWidget {
   final Color backgroundColor;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mvvm2/View/Screens/home_screen.dart';
+import 'package:BreakingBad/View/Screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
 

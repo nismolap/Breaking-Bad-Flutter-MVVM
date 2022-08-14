@@ -1,6 +1,6 @@
-import 'package:mvvm2/Model/Models/characters_model.dart';
-import 'package:mvvm2/Model/Models/quotes_model.dart';
-import 'package:mvvm2/Model/Web_Services/characters_api.dart';
+import 'package:BreakingBad/Model/Models/characters_model.dart';
+import 'package:BreakingBad/Model/Models/quotes_model.dart';
+import 'package:BreakingBad/Model/Web_Services/characters_api.dart';
 
 class CharactersRepository {
   Future<List<CharactersModel>> getAllCharacters() async {

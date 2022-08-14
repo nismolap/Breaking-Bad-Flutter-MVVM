@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mvvm2/Model/exception.dart';
+import 'package:BreakingBad/Model/exception.dart';
 
 class CharactersApi {
   var apiUrl = "https://www.breakingbadapi.com/api";

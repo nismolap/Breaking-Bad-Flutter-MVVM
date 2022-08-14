@@ -1,10 +1,10 @@
 // ignore_for_file: must_call_super
 
+import 'package:BreakingBad/Model/Repository/Characters_repos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:mvvm2/Model/Models/characters_model.dart';
-import 'package:mvvm2/Model/Models/quotes_model.dart';
-import 'package:mvvm2/Model/Repository/Characters_repos.dart';
+import 'package:BreakingBad/Model/Models/characters_model.dart';
+import 'package:BreakingBad/Model/Models/quotes_model.dart';
 
 class HomeController extends GetxController {
   List<QuotesModel> quotes = [];
