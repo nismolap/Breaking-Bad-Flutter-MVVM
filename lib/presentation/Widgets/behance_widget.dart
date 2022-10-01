@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
-import 'package:BreakingBad/View/Shared/Configs/Constants.dart';
-import 'package:BreakingBad/View/Shared/Configs/TextStyles.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/Colors.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/Constants.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/TextStyles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BehanceWidget extends StatelessWidget {

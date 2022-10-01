@@ -1,8 +1,9 @@
 import 'package:BreakingBad/Controller/home_controller.dart';
-import 'package:BreakingBad/View/Screens/info_screen.dart';
+import 'package:BreakingBad/presentation/Screens/info_screen.dart';
+import 'package:BreakingBad/presentation/animation/shimmer_loading/structure.dart';
 import 'package:flutter/material.dart';
-import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
-import 'package:BreakingBad/View/Shared/Configs/TextStyles.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/Colors.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/TextStyles.dart';
 import 'package:get/get.dart';
 
 class CardWidget extends StatelessWidget {
@@ -44,12 +45,20 @@ class CardWidget extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    image: DecorationImage(
-                      image: NetworkImage(image),
-                      fit: BoxFit.cover,
-                      alignment: Alignment.topCenter,
-                    ),
+                    // image: DecorationImage(
+                    //   image: NetworkImage(image),
+                    //   fit: BoxFit.cover,
+                    //   alignment: Alignment.topCenter,
+                    // ),
                   ),
+                  child: Image.network(
+                    image,
+                    loadingBuilder: (_, child, progress) {
+                      if (progress == null) return child;
+                      return const Structure(height: 10, width: double.infinity);
+                    },
+                  )
+                    // FadeInImage(placeholder: Structure(height: 10, width: double.infinity), image: image,),
                 )),
             Expanded(
                 child: Column(

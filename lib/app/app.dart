@@ -1,17 +1,18 @@
+import 'package:BreakingBad/presentation/Shared/Routes/App_Routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../View/Screens/home_screen.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final AppRoutesGenerator appRoute;
+  const MyApp({Key? key, required this.appRoute}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return MaterialApp(
       title: 'breakingbadapi',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      onGenerateRoute: appRoute.onGenerateRoute,
+      initialRoute: '/',
     );
   }
 }

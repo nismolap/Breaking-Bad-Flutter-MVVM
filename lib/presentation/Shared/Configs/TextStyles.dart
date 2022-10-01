@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BreakingBad/View/Shared/Configs/Colors.dart';
-import 'package:BreakingBad/View/Shared/Configs/Constants.dart';
+import 'package:BreakingBad/presentation//Shared/Configs/Colors.dart';
+import 'package:BreakingBad/presentation/Shared/Configs/Constants.dart';
 
 class AppTextStyle {
   //Header Style
