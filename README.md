@@ -5,7 +5,6 @@ Breaking Bad flutter project.
 # Output
 
 <img src="assets/images/Screenshot_20220814_112106.png" height="400" alt="Screenshot"/> 
-<video src='assets/images/video.mp4' width=180/>
 
 ## Requirements
 
