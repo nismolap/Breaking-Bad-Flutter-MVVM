@@ -1,4 +1,4 @@
-part of "characters_cubit.dart";
+part of 'characters_cubit.dart';
 
 @immutable
 abstract class CharactersState {}

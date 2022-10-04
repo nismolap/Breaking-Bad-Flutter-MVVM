@@ -13,18 +13,22 @@ class CharactersRepository {
     return response.map((data) => QuotesModel.fromJson(data)).toList();
   }
 
-  Future<List<CharactersModel>> getCharacterByName({required String name}) async {
+  Future<List<CharactersModel>> getCharacterByName(
+      {required String name}) async {
     final response = await CharactersApi().getCharacterByName(name: name);
     return response.map((data) => CharactersModel.fromJson(data)).toList();
   }
+
   Future<List<CharactersModel>> getCharacterCBetterCall() async {
     final response = await CharactersApi().getCharacterCBetterCall();
     return response.map((data) => CharactersModel.fromJson(data)).toList();
   }
+
   Future<List<CharactersModel>> getCharacterCBreakingBad() async {
     final response = await CharactersApi().getCharacterCBreakingBad();
     return response.map((data) => CharactersModel.fromJson(data)).toList();
   }
+
   Future<List<CharactersModel>> getCharacterRandom() async {
     final response = await CharactersApi().getCharacterRandom();
     return response.map((data) => CharactersModel.fromJson(data)).toList();

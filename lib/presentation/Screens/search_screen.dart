@@ -1,10 +1,12 @@
 // ignore_for_file: must_be_immutable, non_constant_identifier_names
 
 import 'package:BreakingBad/Model/Models/characters_model.dart';
-import 'package:BreakingBad/business_logic/bloc_exports.dart';
 import 'package:BreakingBad/presentation/Screens/home_screen.dart';
 import 'package:BreakingBad/presentation/Shared/Routes/App_Routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../business_logic/characters/characters_cubit.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);

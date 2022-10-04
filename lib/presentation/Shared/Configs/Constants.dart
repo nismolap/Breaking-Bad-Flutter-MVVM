@@ -13,6 +13,8 @@ class Constants {
 
   static const behanceText = 'My Behance';
 
+  static const appTitle = 'breakingbadapi';
+
   //Links
   static const behanceLink = 'https://www.behance.net/nismolap';
 }

@@ -1,17 +1,18 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
 
 import 'package:BreakingBad/Model/Models/characters_model.dart';
-import 'package:BreakingBad/business_logic/characters_cubit.dart';
 import 'package:BreakingBad/business_logic/dark_mode/dark_mode_cubit.dart';
 import 'package:BreakingBad/presentation/animation/shimmer_loading/card_loading.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../business_logic/characters/characters_cubit.dart';
 import '../../presentation/Shared/Configs/Constants.dart';
 import '../../presentation/Widgets/behance_widget.dart';
 import '../../presentation/Widgets/card_widget.dart';
 import '../../presentation/Widgets/header_widget.dart';
+import '../Shared/Routes/routes_name.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -72,7 +73,7 @@ class MyHomePage extends StatelessWidget {
           child: BuildBlocWidget(),
         ),
         Expanded(
-            child: Center(child: BehanceWidget(onPress: () {Navigator.of(context).pushNamed('/search');},buttonText: "Search",))),
+            child: Center(child: ButtonWidget(onPress: () {Navigator.of(context).pushNamed(AppRoutesName.searchRoute);},buttonText: "Search",))),
       ],
     );
   }

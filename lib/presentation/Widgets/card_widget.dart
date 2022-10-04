@@ -4,6 +4,8 @@ import 'package:BreakingBad/presentation/animation/shimmer_loading/structure.dar
 import 'package:flutter/material.dart';
 import 'package:BreakingBad/presentation/Shared/Configs/TextStyles.dart';
 
+import '../Shared/Routes/routes_name.dart';
+
 class CardWidget extends StatelessWidget {
 
   final String image;
@@ -23,13 +25,7 @@ class CardWidget extends StatelessWidget {
     // HomeController controller = Get.put(HomeController());
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/info',arguments: InfoScreenArguments(index: index,name: name,image: image));
-        // Navigator.of(context).push(SlideTransitionRoute(page: BlocProvider(
-        //   create: (context) => CharactersCubit()..getQuotesData(index),
-        //   child: InfoScreen(index: index, img: image, name: name,),
-        // )));
-        // controller.getQuotesData(controller.characters[index].charId!);
-        // Get.to(InfoScreen(index: index));
+        Navigator.of(context).pushNamed(AppRoutesName.infoRoute,arguments: InfoScreenArguments(index: index,name: name,image: image));
       },
       child: Container(
         padding: const EdgeInsets.all(20),

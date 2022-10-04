@@ -1,9 +1,13 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
 import 'package:BreakingBad/Model/Models/quotes_model.dart';
-import 'package:BreakingBad/business_logic/bloc_exports.dart';
 import 'package:BreakingBad/presentation/Widgets/info_card_widget.dart';
 import 'package:BreakingBad/presentation/animation/shimmer_loading/info_screen_loading.dart';
 import 'package:BreakingBad/presentation/animation/shimmer_loading/structure.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../business_logic/characters/characters_cubit.dart';
 
 class InfoScreen extends StatelessWidget {
   final String img;
@@ -22,56 +26,6 @@ class InfoScreen extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: BlocWidgetCheck()
-
-          // Obx(
-          //   () => !controller.loadingQuotes.value
-          //       ? const Center(
-          //           child: CircularProgressIndicator(
-          //           color: AppColors.primaryColor1,
-          //         ))
-          //       : Column(
-          //           children: [
-          //             Expanded(
-          //                 flex: 2,
-          //                 child: Row(
-          //                   mainAxisAlignment: MainAxisAlignment.center,
-          //                   children: [
-          //                     Container(
-          //                       margin: const EdgeInsets.symmetric(vertical: 10),
-          //                       child: Image(
-          //                         image: NetworkImage(
-          //                             '${controller.characters[index].img}'),
-          //                       ),
-          //                     ),
-          //                   ],
-          //                 )),
-          //             Expanded(
-          //                 flex: 4,
-          //                 child: SingleChildScrollView(
-          //                   child: Column(
-          //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //                     children: [
-          //                       InfoCardWidget(
-          //                           title: 'Name',
-          //                           info: controller.characters[index].name),
-          //                       InfoCardWidget(
-          //                           title: 'BirthDay',
-          //                           info: controller.characters[index].birthday),
-          //                       InfoCardWidget(
-          //                           title: 'Quote',
-          //                           info: controller.quotes[0].quote),
-          //                       InfoCardWidget(
-          //                           title: 'Author',
-          //                           info: controller.quotes[0].author),
-          //                       InfoCardWidget(
-          //                           title: 'Series',
-          //                           info: controller.quotes[0].series),
-          //                     ],
-          //                   ),
-          //                 )),
-          //           ],
-          //         ),
-          // ),
         ),
     );
   }

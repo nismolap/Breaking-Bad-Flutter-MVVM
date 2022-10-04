@@ -1,8 +1,12 @@
-import 'package:BreakingBad/business_logic/bloc_exports.dart';
 import 'package:BreakingBad/business_logic/dark_mode/dark_mode_cubit.dart';
 import 'package:BreakingBad/presentation/Shared/Routes/App_Routes.dart';
+import 'package:BreakingBad/presentation/Shared/Routes/routes_name.dart';
 import 'package:BreakingBad/presentation/Shared/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../business_logic/characters/characters_cubit.dart';
+import '../presentation/Shared/Configs/Constants.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -20,10 +24,10 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<DarkModeCubit, DarkModeState>(
         builder: (context, state) {
           return MaterialApp(
-            title: 'breakingbadapi',
+            title: Constants.appTitle,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: appRoute.onGenerateRoute,
-            initialRoute: '/',
+            initialRoute: AppRoutesName.homeRoute,
             theme: state is DarkModeOn ?
             AppThemes.appThemeData[AppTheme.darkTheme]
                 : state is DarkModeOff ?
