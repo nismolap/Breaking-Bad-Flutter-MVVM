@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class SlideTransitionRoute extends PageRouteBuilder {
   final Widget page;
   @override
+  final RouteSettings settings;
+  @override
 
-  SlideTransitionRoute({required this.page})
+  SlideTransitionRoute({required this.page,required this.settings})
       : super(
+          settings: settings,
           pageBuilder: (
             BuildContext context,
             Animation<double> animation,

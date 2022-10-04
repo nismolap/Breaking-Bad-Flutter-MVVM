@@ -2,57 +2,64 @@
 
 import 'package:BreakingBad/Model/Models/characters_model.dart';
 import 'package:BreakingBad/business_logic/characters_cubit.dart';
+import 'package:BreakingBad/business_logic/dark_mode/dark_mode_cubit.dart';
 import 'package:BreakingBad/presentation/animation/shimmer_loading/card_loading.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../presentation/Shared/Configs/Colors.dart';
 import '../../presentation/Shared/Configs/Constants.dart';
 import '../../presentation/Widgets/behance_widget.dart';
 import '../../presentation/Widgets/card_widget.dart';
 import '../../presentation/Widgets/header_widget.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   List<CharactersModel> allCharacters = [];
-
-  @override
-  void initState() {
-    super.initState();
-        BlocProvider.of<CharactersCubit>(context).getAllCharacters();
-  }
-
+  bool darkMode = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor2,
       body: SafeArea(
-        child: mainWidget(),
+        child: mainWidget(context),
       ),
+      floatingActionButton: BlocBuilder<DarkModeCubit, DarkModeState>(
+  builder: (context, state) {
+    return FloatingActionButton(
+        onPressed: () {
+          context.read<DarkModeCubit>().changeSystemMode();
+        },
+        backgroundColor: state is DarkModeOn ? Colors.black : state is DarkModeOff ?  Colors.white : Colors.white,
+        child: Icon(Icons.brightness_4,color: state is DarkModeOn ? Colors.white : state is DarkModeOff ?  Colors.black : Colors.black,),
+      );
+  },
+),
     );
   }
 
   Widget BuildBlocWidget() {
     return BlocBuilder<CharactersCubit, CharactersState>(
         builder: (context, state) {
-          context.read<CharactersCubit>().getAllCharacters();
-      if (state is CharactersLoaded) {
-        allCharacters = (state).characters;
+      if(allCharacters.isEmpty){
+        if (state is CharactersLoaded) {
+          allCharacters = (state).characters;
+          return LoadedWidget();
+        }
+        if(state is CharactersError){
+          return WidgetError(context);
+        }
+        else {
+          return LoadingWidget();
+        }
+      }
+      else{
         return LoadedWidget();
-      } else {
-        return LoadingWidget();
       }
     });
   }
 
-  Widget mainWidget() {
+  Widget mainWidget(context) {
     return Column(
       children: [
         const Expanded(
@@ -65,10 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: BuildBlocWidget(),
         ),
         Expanded(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [BehanceWidget()],
-        )),
+            child: Center(child: BehanceWidget(onPress: () {Navigator.of(context).pushNamed('/search');},buttonText: "Search",))),
       ],
     );
   }
@@ -86,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
             image: '${allCharacters[index].img}',
             name: '${allCharacters[index].name}',
             nickName: '${allCharacters[index].nickname}',
-            index: index,
+            index: allCharacters[index].charId!
           );
         });
   }
@@ -96,12 +100,28 @@ class _MyHomePageState extends State<MyHomePage> {
         itemCount: 0,
         options: CarouselOptions(
           height: 400,
-          autoPlay: true,
           enlargeCenterPage: true,
         ),
         itemBuilder: (context, index, realIndex) {
           return const CardLoading();
         });
+  }
+  Widget WidgetError(context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Icon(
+            Icons.image_not_supported_outlined, size: 100,color: Colors.white,),
+          Wrap(
+            children:  [
+              Text("we're sorry the preview didn't load , Error with the server",
+                textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 22),),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 

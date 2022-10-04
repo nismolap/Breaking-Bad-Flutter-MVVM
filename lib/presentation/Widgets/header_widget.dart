@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:BreakingBad/presentation/Shared/Configs/Colors.dart';
-import 'package:BreakingBad/presentation/Shared/Configs/TextStyles.dart';
 
 class HeaderWidget extends StatelessWidget {
   final String headerLeftText;
@@ -20,9 +18,9 @@ class HeaderWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-                color: AppColors.secondaryColor2,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: Theme.of(context).bottomAppBarColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
@@ -30,20 +28,20 @@ class HeaderWidget extends StatelessWidget {
                 )),
             child: Text(
               headerLeftText,
-              style: AppTextStyle.headerStyle(),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           Container(
               margin: const EdgeInsets.all(2),
-              child: const CircleAvatar(
-                backgroundColor: AppColors.secondaryColor1,
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).cardTheme.color,
                 radius: 5,
               )),
           Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-                color: AppColors.primaryColor1,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: Theme.of(context).splashColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(45),
                   topRight: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
@@ -51,7 +49,7 @@ class HeaderWidget extends StatelessWidget {
                 )),
             child: Text(
               headerRightText,
-              style: AppTextStyle.headerStyle(),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
         ],

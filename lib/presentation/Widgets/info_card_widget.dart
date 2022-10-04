@@ -40,7 +40,7 @@ class InfoCardWidget extends StatelessWidget {
                       Center(
                           child: Text(
                         info!,
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.left,
                         style: AppTextStyle.subTitleStyle(),
                       )),
                     ],

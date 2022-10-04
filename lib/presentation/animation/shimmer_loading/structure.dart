@@ -36,8 +36,8 @@ class _StructureState extends State<Structure> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   @override
